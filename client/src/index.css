@@ -1,5 +1,17 @@
 body {
-  margin: 0;
+  margin-top: 80px;
   padding: 0;
   font-family: sans-serif;
+}
+
+.container {
+  max-width: 960px;
+}
+
+.card-header {
+  padding: 5px 15px;
+}
+
+.card-header h4 {
+  margin-bottom: 0;
 }
