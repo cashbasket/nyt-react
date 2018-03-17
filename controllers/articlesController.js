@@ -8,21 +8,9 @@ module.exports = {
       .then(articles => res.json(articles))
       .catch(err => res.status(422).json(err));
   },
-  findById: function(req, res) {
-    models.Article
-      .findById(req.params.id)
-      .then(article => res.json(article))
-      .catch(err => res.status(422).json(err));
-  },
-  create: function(req, res) {
+  save: function(req, res) {
     models.Article
       .create(req.body)
-      .then(article => res.json(article))
-      .catch(err => res.status(422).json(err));
-  },
-  update: function(req, res) {
-    models.Article
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(article => res.json(article))
       .catch(err => res.status(422).json(err));
   },
