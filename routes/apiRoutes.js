@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const articlesController = require('../../controllers/articlesController');
+const articlesController = require('../controllers/articlesController');
 
-router.route('/')
+router.route('/articles')
   .get(articlesController.findAll)
-  .post(articlesController.create)
+  .post(articlesController.save)
   .delete(articlesController.remove);
   
 module.exports = router;
