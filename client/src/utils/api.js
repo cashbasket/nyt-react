@@ -1,13 +1,8 @@
 import axios from 'axios';
 
 export default {
-  searchArticles: function(query) {
-    return axios.get('https://api.nytimes.com/svc/search/v2/articlesearch.json', {
-      params: {
-        'api-key': process.env.NYT_API_KEY,
-        'q': query
-      }
-    });
+  searchArticles: function(topic, startDate, endDate) {
+    return axios.get('/search', { params: { topic: topic, startDate: startDate, endDate: endDate } });
   },
   getSavedArticles: function() {
     return axios.get('/api/articles');
