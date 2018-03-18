@@ -42,12 +42,6 @@ class Search extends Component {
       .catch(err => console.log(err));
   }
 
-  loadBooks = () => {
-    API.getBooks()
-      .then(res => this.setState({ books: res.data }))
-      .catch(err => console.log(err));
-  };
-
   handleFormSubmit = event => {
     event.preventDefault();
     var query = {
@@ -76,13 +70,11 @@ class Search extends Component {
       <Container>
         <Row>
           <Col className="col-md-12">
-            <Jumbotron>
-              <h1><em>New York Times</em> Article Scrubber</h1>
-              <p className="lead text-center">Where the Elite Meet to Search <em>The New York Times</em>, and Then Save Articles from <em>The New York Times</em>, and Then Maybe Delete the Saved Articles from <em>The New York Times</em> if They Feel Like It</p>
-              <p className="text-center">(Pro-tip: to view articles that have been saved, click the button in the lower-right corner!)</p>
-            </Jumbotron>
+            <div class="text-center">
+              <div class="alert alert-info border-info"><i class="fas fa-info-circle"></i> <strong>PRO-TIP:</strong> to view the articles that have been saved, click the button in the lower-right corner.</div>
+            </div>
             <div className="card text-white bg-secondary mb-3">
-              <div className="card-header text-center"><h4>Enter Your Search Terms</h4></div>
+              <div className="card-header text-center"><h4>Search Articles</h4></div>
               <div className="card-body">
                 <form>
                   <Row>
@@ -130,21 +122,26 @@ class Search extends Component {
                 {this.state.articles.map((article, index) => (
                   <ArticleItem key={`article-${index + 1}`}>
                     <h3><a href={article.web_url} target="_blank">{article.headline.main}</a></h3>
-                    <p>{article.byline.original} <em>(published {moment(article.pub_date).format('M/D/YYYY @ h:mmA')})</em></p>
+                    <p>{article.byline.original} <br />
+                      <small>Published {moment(article.pub_date).format('M/D/YYYY @ h:mmA')})</small></p>
                     <p>{article.snippet}</p>
-                    <div className="d-flex w-100 justify-content-between">
-                      <a href={article.web_url} className="full-article-link" target="_blank"><i className="fas fa-external-link-alt"></i> Read Full Article</a>
-                      {this.state.alreadySaved.includes(article.web_url) ? (
-                        <span className="save-article-link"><i className="fas fa-database"></i> Already Saved</span>
-                      ) : !this.state.lastSaved.includes(index + 1) ? (
-                        <a key={`save-${index + 1}`} className="save-article-link" onClick={() => this.saveArticle(article.headline.main, article.byline.original, article.web_url, article.snippet, article.pub_date, index + 1)}><i className="fas fa-bookmark"></i> Save This</a>
-                      ) : (
-                        <span className="save-article-link"><i className="fas fa-check-circle"></i> Saved!</span>
-                      )}
-                    </div>
+                    <Row>
+                      <Col className="col-md-6">
+                        <a href={article.web_url} className="full-article-link" target="_blank"><i className="fas fa-external-link-alt"></i> Read Full Article</a>
+                      </Col>
+                      <Col className="col-md-6 col-option">
+                        {this.state.alreadySaved.includes(article.web_url) ? (
+                          <span className="save-article-link"><i className="fas fa-database"></i> Already Saved</span>
+                        ) : !this.state.lastSaved.includes(index + 1) ? (
+                          <a key={`save-${index + 1}`} className="save-article-link" onClick={() => this.saveArticle(article.headline.main, article.byline.original, article.web_url, article.snippet, article.pub_date, index + 1)}><i className="fas fa-bookmark"></i> Save This</a>
+                        ) : (
+                          <span className="save-article-link"><i className="fas fa-check-circle"></i> Saved!</span>
+                        )}
+                      </Col>
+                    </Row>
                   </ArticleItem>
                 ))}
-              </ArticleList>
+              </ArticleList> 
             ) : (
               <Row>
                 <Col className="col-md-12">
@@ -165,7 +162,7 @@ class Search extends Component {
         </Row>
         <div className="action-div">
           <Link to="/saved">
-            <FormBtn className="btn btn-action btn-view-saved btn-lg animated infinite pulse"><i className="far fa-bookmark fa-2x"></i></FormBtn>
+            <FormBtn className="btn btn-action btn-view-saved btn-lg animated infinite pulse"><i className="far fa-bookmark fa-3x"></i></FormBtn>
           </Link>
         </div>
       </Container>
