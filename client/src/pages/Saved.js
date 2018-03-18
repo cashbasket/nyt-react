@@ -52,8 +52,10 @@ class Saved extends Component {
                 {this.state.articles.map((article, index) => (
                   <ArticleItem key={`article-${article._id}`}>
                     <h3><a href={article.url} target="_blank">{article.headline}</a></h3>
-                    <p>{article.byline}<br />
-                      <small>Published {moment(article.datePublished).format('M/D/YYYY @ h:mmA')} <em>(and saved {moment(article.dateAdded).format('M/D/YYYY @ h:mmA')})</em></small></p>
+                    <p>{article.byline ? 
+                      (<span>{article.byline}<br /></span>)
+                      : ''}
+                    <small>Published {moment(article.datePublished).format('M/D/YYYY @ h:mmA')} <em>(and saved {moment(article.dateAdded).format('M/D/YYYY @ h:mmA')})</em></small></p>
                     <p>{article.snippet}</p>
                     <Row>
                       <Col className="col-md-6">

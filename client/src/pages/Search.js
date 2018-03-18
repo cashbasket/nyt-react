@@ -117,8 +117,10 @@ class Search extends Component {
                 {this.state.articles.map((article, index) => (
                   <ArticleItem key={`article-${index + 1}`}>
                     <h3><a href={article.web_url} target="_blank">{article.headline.main}</a></h3>
-                    <p>{article.byline.original} <br />
-                      <small>Published {moment(article.pub_date).format('M/D/YYYY @ h:mmA')})</small></p>
+                    <p>{article.byline && article.byline.original ? 
+                      (<span>{article.byline.original}<br /></span>)
+                      : ''}
+                    <small>Published {moment(article.pub_date).format('M/D/YYYY @ h:mmA')}</small></p>
                     <p>{article.snippet}</p>
                     <Row>
                       <Col className="col-md-6">
