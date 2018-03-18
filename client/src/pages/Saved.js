@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Col, Row, Container } from '../components/Grid';
 import { ArticleList, ArticleItem } from '../components/Article';
 import { FormBtn } from '../components/Form';
-import Jumbotron from '../components/Jumbotron/Jumbotron';
 import API from '../utils/api';
 import moment from 'moment';
 

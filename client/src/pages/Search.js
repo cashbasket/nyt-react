@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { Col, Row, Container } from '../components/Grid';
 import { ArticleList, ArticleItem } from '../components/Article';
 import { Input, FormBtn, YearSelect } from '../components/Form';
-import Jumbotron from '../components/Jumbotron/Jumbotron';
 
 class Search extends Component {
   state = {
@@ -44,11 +43,6 @@ class Search extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    var query = {
-      topic: this.state.topic,
-      startDate: this.state.startDate,
-      endDate: this.state.endDate
-    };
     let alreadySavedUrls = [];
     let results;
     API.searchArticles(this.state.topic, this.state.startDate, this.state.endDate)
@@ -62,7 +56,7 @@ class Search extends Component {
         });
         this.setState({ articles: results, alreadySaved: alreadySavedUrls, searched: true, lastSaved: [] });
       })
-      .catch(err => console.log(err));
+      .catch(err => {return console.log(err)});
   };
 
   render() {
