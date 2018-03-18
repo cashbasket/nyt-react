@@ -4,7 +4,7 @@ module.exports = {
   findAll: function(req, res) {
     models.Article
       .find(req.query)
-      .sort({ date: -1 })
+      .sort({ dateAdded: -1 })
       .then(articles => res.json(articles))
       .catch(err => res.status(422).json(err));
   },

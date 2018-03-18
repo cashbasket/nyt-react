@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const articlesController = require('../controllers/articlesController');
 
-router.route('/articles')
+router.route('/articles/:id?')
   .get(articlesController.findAll)
   .post(articlesController.save)
   .delete(articlesController.remove);
