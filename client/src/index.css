@@ -1,7 +1,38 @@
 body {
-  margin-top: 80px;
+  margin-top: 20px;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
+  background-color: #ddd;
+}
+
+.site {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.site-content {
+	flex: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
+  font-family: 'IBM Plex Serif', serif;
+}
+
+h1 {
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h3 {
+  font-weight: 600;
 }
 
 .container {
@@ -14,4 +45,78 @@ body {
 
 .card-header h4 {
   margin-bottom: 0;
+}
+
+.action-div {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+}
+
+a,
+a:hover,
+a:active,
+a:focus {
+  color: #bd1313;
+}
+
+a:hover,
+a:active,
+a:focus {
+  text-decoration: underline !important;
+}
+
+h3 a,
+h3 a:hover,
+h3 a:active,
+h3 a:focus {
+  color: #000;
+}
+
+.full-article-link {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.no-results-icon {
+  margin-bottom: 10px;
+}
+
+.article-card button {
+  max-height: 41.6px;
+}
+
+.btn-search {
+  margin-top: 32px;
+  width: 100%;
+}
+
+.save-article-link,
+.delete-article-link {
+  font-weight: bold;
+  color: #bd1313 !important;
+  cursor: pointer;
+}
+
+.btn-action {
+  background-color: #bd1313;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.btn-view-saved {
+  padding: 15px 22px;
+}
+
+.btn-view-search {
+  padding: 15px 18px;
+}
+
+
+
+@media screen and (max-width: 767px) {
+  .btn-search {
+    margin-top: 0;
+  }
 }
