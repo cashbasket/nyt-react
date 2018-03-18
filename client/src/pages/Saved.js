@@ -42,9 +42,9 @@ class Saved extends Component {
       <Container>
         <Row>
           <Col className="col-md-12">
-            <div class="card article-card bg-secondary text-white">
-              <div class="card-body">
-                <h2 class="text-center"><strong>SAVED ARTICLES</strong></h2>
+            <div className="card article-card bg-secondary text-white">
+              <div className="card-body">
+                <h2 className="text-center"><strong>SAVED ARTICLES</strong></h2>
               </div>
             </div>
             {this.state.articles.length ? (

@@ -43,20 +43,21 @@ class Search extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    let alreadySavedUrls = [];
+    const alreadySavedUrls = [];
     let results;
     API.searchArticles(this.state.topic, this.state.startDate, this.state.endDate)
       .then(res => {
         results = res.data;
         return API.getSavedArticles();  
       })
-      .then(res => {
-        res.data.map(article => {
+      .then(savedArticles => {
+        savedArticles.data.map(article => {
           alreadySavedUrls.push(article.url);
         });
+        console.log(results);
         this.setState({ articles: results, alreadySaved: alreadySavedUrls, searched: true, lastSaved: [] });
       })
-      .catch(err => {return console.log(err)});
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -64,8 +65,8 @@ class Search extends Component {
       <Container>
         <Row>
           <Col className="col-md-12">
-            <div class="text-center">
-              <div class="alert alert-info border-info"><i class="fas fa-info-circle"></i> <strong>PRO-TIP:</strong> to view the articles that have been saved, click the button in the lower-right corner.</div>
+            <div className="text-center">
+              <div className="alert alert-info border-info"><i className="fas fa-info-circle"></i> <strong>PRO-TIP:</strong> to view the articles that have been saved, click the button in the lower-right corner.</div>
             </div>
             <div className="card text-white bg-secondary mb-3">
               <div className="card-header text-center"><h4>Search Articles</h4></div>
