@@ -3,29 +3,31 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const ArticleSchema = new Schema({
-  title: {
+  headline: {
     type: String,
     required: true
   },
-  organization: {
+  byline: {
     type: String,
     required: false
   },
   url: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   snippet: {
     type: String,
     required: false
   },
-  datePosted: {
+  datePublished: {
     type: Date,
     required: true
   },
   dateAdded: {
     type: Date,
-    required: true
+    required: true,
+    default: Date.now
   }
 });
 
