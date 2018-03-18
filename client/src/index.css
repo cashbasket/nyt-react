@@ -1,5 +1,4 @@
 body {
-  margin-top: 20px;
   padding: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #ddd;
@@ -16,19 +15,27 @@ body {
 }
 
 h1,
-h2,
 h3,
 h4,
 h5,
-h6,
-.navbar-brand {
+h6 {
   font-family: 'IBM Plex Serif', serif;
 }
 
 h1 {
-  font-weight: 600;
-  margin-bottom: 20px;
+  font-family: 'Shrikhand', cursive;
+  font-size: 50px;
+  margin-bottom: 0;
   text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.jumbotron {
+  padding: 20px 0;
 }
 
 h3 {
@@ -82,6 +89,10 @@ h3 a:focus {
   margin-bottom: 10px;
 }
 
+.article-card {
+  border: 1px solid #666;
+}
+
 .article-card button {
   max-height: 41.6px;
 }
@@ -106,17 +117,53 @@ h3 a:focus {
 }
 
 .btn-view-saved {
-  padding: 15px 22px;
+  padding: 20px 27px;
 }
 
 .btn-view-search {
-  padding: 15px 18px;
+  padding: 18px 21px;
 }
 
+footer {
+  text-align: center;
+  color: #fff;
+  margin-top: 5px;
+  padding: 10px;
+}
 
+footer p {
+  margin-bottom: 0;
+}
+
+footer a,
+footer a:hover,
+footer a:active,
+footer a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.col-option {
+  text-align: right;
+}
 
 @media screen and (max-width: 767px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
   .btn-search {
     margin-top: 0;
+  }
+  .col-option {
+    text-align: left;
   }
 }
