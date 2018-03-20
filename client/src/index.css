@@ -14,7 +14,12 @@ body {
 	flex: 1;
 }
 
+#searching {
+  display: none;
+}
+
 h1,
+h2,
 h3,
 h4,
 h5,
@@ -56,8 +61,8 @@ h3 {
 
 .action-div {
   position: fixed;
-  bottom: 15px;
-  right: 15px;
+  bottom: 10px;
+  right: 10px;
 }
 
 a,
