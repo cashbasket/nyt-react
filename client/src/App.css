@@ -22,3 +22,29 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+@keyframes fade {
+  0% { opacity: 0 }
+  5% { opacity: 1 }
+  95% { opacity: 1 }
+  100% { opacity: 0 }
+}
+
+.fade {
+  animation: fade 5s linear;
+}
+
+#articleSaved {
+  position: fixed;
+  top: 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #bd1313;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  min-width: 100%;
+  opacity: 0;
+  z-index: 9999;
+}

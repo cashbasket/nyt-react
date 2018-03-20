@@ -7,15 +7,18 @@ import { ArticleList, ArticleItem } from '../components/Article';
 import { Input, FormBtn, YearSelect } from '../components/Form';
 
 class Search extends Component {
-  state = {
-    articles: [],
-    alreadySaved: [],
-    topic: '',
-    startDate: new Date().getFullYear(),
-    endDate: new Date().getFullYear(),
-    searched: false,
-    lastSaved: []
-  };
+  constructor(props){
+    super(props);
+    this.state = {
+      articles: [],
+      alreadySaved: [],
+      topic: '',
+      startDate: new Date().getFullYear(),
+      endDate: new Date().getFullYear(),
+      searched: false,
+      lastSaved: []
+    };
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -37,6 +40,7 @@ class Search extends Component {
         const lastSaved = this.state.lastSaved;
         lastSaved.push(index);
         this.setState({ lastSaved: lastSaved });
+        this.props.send(res.data.headline);
       })
       .catch(err => console.log(err));
   }
@@ -45,6 +49,8 @@ class Search extends Component {
     event.preventDefault();
     const alreadySavedUrls = [];
     let results;
+    const searchingDiv = document.getElementById('searching');
+    searchingDiv.style.display = 'block';
     API.searchArticles(this.state.topic, this.state.startDate, this.state.endDate)
       .then(res => {
         results = res.data;
@@ -52,10 +58,10 @@ class Search extends Component {
       })
       .then(savedArticles => {
         savedArticles.data.map(article => {
-          alreadySavedUrls.push(article.url);
+          return alreadySavedUrls.push(article.url);
         });
-        console.log(results);
-        this.setState({ articles: results, alreadySaved: alreadySavedUrls, searched: true, lastSaved: [] });
+        searchingDiv.style.display = 'none';
+        this.setState({ articles: results, topic: '', alreadySaved: alreadySavedUrls, searched: true, lastSaved: [] });
       })
       .catch(err => console.log(err));
   };
@@ -66,7 +72,7 @@ class Search extends Component {
         <Row>
           <Col className="col-md-12">
             <div className="text-center">
-              <div className="alert alert-info border-info"><i className="fas fa-info-circle"></i> <strong>PRO-TIP:</strong> to view the articles that have been saved, click the button in the lower-right corner.</div>
+              <div className="alert alert-info border-info"><i className="fas fa-info-circle"></i> To view articles that have been saved, click the giant red button in the lower-right corner.</div>
             </div>
             <div className="card text-white bg-secondary mb-3">
               <div className="card-header text-center"><h4>Search Articles</h4></div>
@@ -110,6 +116,15 @@ class Search extends Component {
             </div>
           </Col>
         </Row>
+        <Row id="searching">
+          <Col className="col-md-12">
+            <div className="card article-card bg-dark text-white text-center">
+              <div class="card-body">
+                <i className="fas fa-spinner fa-spin fa-3x no-results-icon"></i> <h5 className="card-text">Searching. Please wait...</h5>
+              </div>
+            </div>
+          </Col>
+        </Row>
         <Row>
           <Col className="col-md-12">
             {this.state.articles.length ? (
@@ -130,7 +145,7 @@ class Search extends Component {
                         {this.state.alreadySaved.includes(article.web_url) ? (
                           <span className="save-article-link"><i className="fas fa-database"></i> Already Saved</span>
                         ) : !this.state.lastSaved.includes(index + 1) ? (
-                          <a key={`save-${index + 1}`} className="save-article-link" onClick={() => this.saveArticle(article.headline.main, article.byline.original, article.web_url, article.snippet, article.pub_date, index + 1)}><i className="fas fa-bookmark"></i> Save This</a>
+                          <a key={`save-${index + 1}`} className="save-article-link" onClick={() => this.saveArticle(article.headline.main, article.byline.original, article.web_url, article.snippet, article.pub_date, index + 1)}><i className="fas fa-bookmark"></i> Save Article</a>
                         ) : (
                           <span className="save-article-link"><i className="fas fa-check-circle"></i> Saved!</span>
                         )}
@@ -159,7 +174,7 @@ class Search extends Component {
         </Row>
         <div className="action-div">
           <Link to="/saved">
-            <FormBtn className="btn btn-action btn-view-saved btn-lg animated infinite pulse"><i className="far fa-bookmark fa-3x"></i></FormBtn>
+            <FormBtn className="btn btn-action btn-view-saved btn-lg animated infinite pulse"><i className="far fa-bookmark fa-2x"></i></FormBtn>
           </Link>
         </div>
       </Container>

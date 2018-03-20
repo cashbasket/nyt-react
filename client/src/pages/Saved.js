@@ -62,7 +62,7 @@ class Saved extends Component {
                         <a href={article.url} className="full-article-link" target="_blank"><i className="fas fa-external-link-alt"></i> Read Full Article</a>
                       </Col>
                       <Col className="col-md-6 col-option">
-                        <a key={`delete-${index + 1}`} className="delete-article-link" onClick={() => this.deleteArticle(article._id)}><i className="fas fa-trash"></i> Delete This</a>
+                        <a key={`delete-${index + 1}`} className="delete-article-link" onClick={() => this.deleteArticle(article._id)}><i className="fas fa-trash"></i> Delete</a>
                       </Col>
                     </Row>
                   </ArticleItem>
@@ -93,7 +93,7 @@ class Saved extends Component {
         </Row>
         <div className="action-div">
           <Link to="/">
-            <FormBtn className="btn btn-action btn-view-search btn-lg animated infinite pulse"><i className="fas fa-search fa-3x"></i></FormBtn>
+            <FormBtn className="btn btn-action btn-view-search btn-lg animated infinite pulse"><i className="fas fa-search fa-2x"></i></FormBtn>
           </Link>
         </div>
       </Container>
