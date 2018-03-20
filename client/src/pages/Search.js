@@ -58,7 +58,7 @@ class Search extends Component {
       })
       .then(savedArticles => {
         savedArticles.data.map(article => {
-          alreadySavedUrls.push(article.url);
+          return alreadySavedUrls.push(article.url);
         });
         console.log(results);
         searchingDiv.style.display = 'none';
