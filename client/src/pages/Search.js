@@ -40,7 +40,7 @@ class Search extends Component {
         const lastSaved = this.state.lastSaved;
         lastSaved.push(index);
         this.setState({ lastSaved: lastSaved });
-        this.props.send(articleData.headline);
+        this.props.send(res.data.headline);
       })
       .catch(err => console.log(err));
   }
@@ -60,7 +60,6 @@ class Search extends Component {
         savedArticles.data.map(article => {
           return alreadySavedUrls.push(article.url);
         });
-        console.log(results);
         searchingDiv.style.display = 'none';
         this.setState({ articles: results, topic: '', alreadySaved: alreadySavedUrls, searched: true, lastSaved: [] });
       })
