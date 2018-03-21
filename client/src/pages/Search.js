@@ -50,6 +50,8 @@ class Search extends Component {
     const alreadySavedUrls = [];
     let results;
     const searchingDiv = document.getElementById('searching');
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.style.display = 'none';
     searchingDiv.style.display = 'block';
     API.searchArticles(this.state.topic, this.state.startDate, this.state.endDate)
       .then(res => {
@@ -61,7 +63,8 @@ class Search extends Component {
           return alreadySavedUrls.push(article.url);
         });
         searchingDiv.style.display = 'none';
-        this.setState({ articles: results, topic: '', alreadySaved: alreadySavedUrls, searched: true, lastSaved: [] });
+        resultsDiv.style.display = 'block';
+        this.setState({ articles: results, alreadySaved: alreadySavedUrls, searched: true, lastSaved: [] });
       })
       .catch(err => console.log(err));
   };
@@ -72,7 +75,7 @@ class Search extends Component {
         <Row>
           <Col className="col-md-12">
             <div className="text-center">
-              <div className="alert alert-info border-info"><i className="fas fa-info-circle"></i> To view articles that have been saved, click the giant red button in the lower-right corner.</div>
+              <div className="alert alert-info border-info"><i className="fas fa-info-circle"></i> To view articles that have been saved, click the big red button in the lower-right corner.</div>
             </div>
             <div className="card text-white bg-secondary mb-3">
               <div className="card-header text-center"><h4>Search Articles</h4></div>
@@ -125,7 +128,7 @@ class Search extends Component {
             </div>
           </Col>
         </Row>
-        <Row>
+        <Row id="results">
           <Col className="col-md-12">
             {this.state.articles.length ? (
               <ArticleList>
