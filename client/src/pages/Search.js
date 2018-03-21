@@ -148,7 +148,7 @@ class Search extends Component {
                         {this.state.alreadySaved.includes(article.web_url) ? (
                           <span className="save-article-link"><i className="fas fa-database"></i> Already Saved</span>
                         ) : !this.state.lastSaved.includes(index + 1) ? (
-                          <a key={`save-${index + 1}`} className="save-article-link" onClick={() => this.saveArticle(article.headline.main, article.byline.original, article.web_url, article.snippet, article.pub_date, index + 1)}><i className="fas fa-bookmark"></i> Save Article</a>
+                          <a key={`save-${index + 1}`} className="save-article-link" onClick={() => this.saveArticle(article.headline.main, (article.byline && article.byline.original ? article.byline.original : null), article.web_url, article.snippet, article.pub_date, index + 1)}><i className="fas fa-bookmark"></i> Save Article</a>
                         ) : (
                           <span className="save-article-link"><i className="fas fa-check-circle"></i> Saved!</span>
                         )}
