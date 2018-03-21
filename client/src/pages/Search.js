@@ -87,7 +87,7 @@ class Search extends Component {
                       <Input value={this.state.topic}
                         onChange={this.handleInputChange}
                         name="topic"
-                        placeholder="e.g. What's Happenin' Now"
+                        placeholder="e.g. stuff about things"
                       />
                     </Col>
                     <Col className="col-md-2">
