@@ -25,7 +25,7 @@ class SiteNav extends React.Component {
   render() {
     return (
       <div>
-        <Navbar dark fixed="top" color="dark" expand="md">
+        <Navbar dark fixed="top" color="dark" expand="sm">
           <Container>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
