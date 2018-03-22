@@ -77,7 +77,7 @@ class Search extends Component {
       <Container>
         <Row>
           <Col md="12">
-            <p className="lead text-center"><i class="fas fa-info-circle"></i> Enter your search parameters below, and then click the "Submit" button.</p>
+            <p className="lead text-center"><i className="fas fa-info-circle"></i> Enter your search parameters below, and then click the "Submit" button.</p>
             <div className="card text-white bg-secondary mb-3">
               <div className="card-body">
                 <form>
@@ -122,7 +122,7 @@ class Search extends Component {
         <Row id="searching">
           <Col md="12">
             <div className="card article-card bg-dark text-white text-center">
-              <div class="card-body">
+              <div className="card-body">
                 <i className="fas fa-spinner fa-spin fa-3x no-results-icon"></i> <h5 className="card-text">Searching. Please wait...</h5>
               </div>
             </div>
