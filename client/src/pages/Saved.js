@@ -43,7 +43,7 @@ class Saved extends Component {
     return (
       <Container>
         <Row>
-          <Col className="col-md-12">
+          <Col md="12">
             <div className="card article-card bg-secondary text-white">
               <div className="card-body">
                 <h2 className="text-center"><strong>SAVED ARTICLES</strong></h2>
@@ -60,10 +60,10 @@ class Saved extends Component {
                     <small>Published {moment(article.datePublished).format('M/D/YYYY @ h:mmA')} <em>(and saved {moment(article.dateAdded).format('M/D/YYYY @ h:mmA')})</em></small></p>
                     <p>{article.snippet}</p>
                     <Row>
-                      <Col className="col-md-6">
+                      <Col md="6">
                         <a href={article.url} className="full-article-link" target="_blank"><i className="fas fa-external-link-alt"></i> Read Full Article</a>
                       </Col>
-                      <Col className="col-md-6 col-option">
+                      <Col md="6" className="col-option">
                         <a key={`delete-${index + 1}`} className="delete-article-link" onClick={() => this.deleteArticle(article._id)}><i className="fas fa-trash"></i> Delete</a>
                       </Col>
                     </Row>
@@ -72,7 +72,7 @@ class Saved extends Component {
               </ArticleList>
             ) : (
               <Row>
-                <Col className="col-md-12">
+                <Col md="12">
                   {this.state.loaded ? (
                     <div className="card text-white bg-danger mb-3">
                       <div className="card-body text-center">

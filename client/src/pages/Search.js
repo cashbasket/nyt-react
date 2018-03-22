@@ -76,13 +76,13 @@ class Search extends Component {
     return (
       <Container>
         <Row>
-          <Col className="col-md-12">
+          <Col md="12">
+            <p className="lead text-center"><i class="fas fa-info-circle"></i> Enter your search parameters below, and then click the "Submit" button.</p>
             <div className="card text-white bg-secondary mb-3">
-              <div className="card-header text-center"><h4>Search Articles</h4></div>
               <div className="card-body">
                 <form>
                   <Row>
-                    <Col className="col-md-6">
+                    <Col md="6">
                       <label>Topic (required)</label>
                       <Input value={this.state.topic}
                         onChange={this.handleInputChange}
@@ -90,7 +90,7 @@ class Search extends Component {
                         placeholder="e.g. stuff about things"
                       />
                     </Col>
-                    <Col className="col-md-2">
+                    <Col md="2">
                       <label>Start Year</label>
                       <YearSelect 
                         value={this.state.startDate}
@@ -98,7 +98,7 @@ class Search extends Component {
                         name="startDate"
                       />
                     </Col>
-                    <Col className="col-md-2">
+                    <Col md="2">
                       <label>End Year</label>
                       <YearSelect 
                         value={this.state.endDate}
@@ -106,11 +106,11 @@ class Search extends Component {
                         name="endDate"
                       />
                     </Col>
-                    <Col className="col-md-2">
+                    <Col md="2">
                       <FormBtn disabled={!this.state.topic}
                         onClick={this.handleFormSubmit}
                         className="btn btn-dark btn-search">
-                        <i className="fas fa-search"></i> Search
+                        Submit
                       </FormBtn>
                     </Col>
                   </Row>
@@ -120,7 +120,7 @@ class Search extends Component {
           </Col>
         </Row>
         <Row id="searching">
-          <Col className="col-md-12">
+          <Col md="12">
             <div className="card article-card bg-dark text-white text-center">
               <div class="card-body">
                 <i className="fas fa-spinner fa-spin fa-3x no-results-icon"></i> <h5 className="card-text">Searching. Please wait...</h5>
@@ -129,7 +129,7 @@ class Search extends Component {
           </Col>
         </Row>
         <Row id="results">
-          <Col className="col-md-12">
+          <Col md="12">
             {this.state.articles.length ? (
               <ArticleList>
                 {this.state.articles.map((article, index) => (
@@ -141,10 +141,10 @@ class Search extends Component {
                     <small>Published {moment(article.pub_date).format('M/D/YYYY @ h:mmA')}</small></p>
                     <p>{article.snippet}</p>
                     <Row>
-                      <Col className="col-md-6">
+                      <Col md="6">
                         <a href={article.web_url} className="full-article-link" target="_blank"><i className="fas fa-external-link-alt"></i> Read Full Article</a>
                       </Col>
-                      <Col className="col-md-6 col-option">
+                      <Col md="6" className="col-option">
                         {this.state.alreadySaved.includes(article.web_url) ? (
                           <span className="save-article-link"><i className="fas fa-database"></i> Already Saved</span>
                         ) : !this.state.lastSaved.includes(index + 1) ? (
@@ -159,7 +159,7 @@ class Search extends Component {
               </ArticleList> 
             ) : (
               <Row>
-                <Col className="col-md-12">
+                <Col md="12">
                   {this.state.searched ? (
                     <div className="card text-white bg-danger mb-3">
                       <div className="card-body text-center">
