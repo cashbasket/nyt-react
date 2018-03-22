@@ -3,9 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Search from './pages/Search';
 import Saved from './pages/Saved';
 import NoMatch from './pages/NoMatch';
-import Jumbotron from './components/Jumbotron';
-import { Col, Row, Container } from './components/Grid';
 import io from 'socket.io-client';
+import {
+  Container,
+  Row,
+  Col,
+  Jumbotron
+} from 'reactstrap';
+import SiteNav from './components/SiteNav';
 import './App.css';
 
 const socketParams = { rememberTransport: false, transports: ['websocket'] };
@@ -61,24 +66,27 @@ class App extends Component {
 
     return (
       <div>
-        <div id="articleSaved"></div>
-        <Jumbotron>
-          <Container>
-            <Row>
-              <Col className="col-md-12">
-                <h1>NEW YORK TIMES <small>Article Scrubber</small></h1>
-              </Col>
-            </Row>
-          </Container>
-        </Jumbotron>
         <Router>
-          <Switch>
-            <PropsRoute exact path="/" component={Search} send={this.send} />
-            <PropsRoute exact path="/search" component={Search} send={this.send} />
-            <Route exact path="/saved" component={Saved} />
-            <Route component={NoMatch} />
-          </Switch>
+          <div className="appContainer">
+            <SiteNav />
+            <Jumbotron fluid className="bg-danger text-white">
+              <Container>
+                <Row>
+                  <Col className="col-md-12">
+                    <h1>NEW YORK TIMES <small>Article Scrubber</small></h1>
+                  </Col>
+                </Row>
+              </Container>
+            </Jumbotron>
+            <Switch>
+              <PropsRoute exact path="/" component={Search} send={this.send} />
+              <PropsRoute exact path="/search" component={Search} send={this.send} />
+              <Route exact path="/saved" component={Saved} />
+              <Route component={NoMatch} />
+            </Switch>
+          </div>
         </Router>
+        <div id="articleSaved"></div>
       </div>
     );
   }

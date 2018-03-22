@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import API from '../utils/api';
 import moment from 'moment';
-import { Link } from 'react-router-dom';
 import { Col, Row, Container } from '../components/Grid';
 import { ArticleList, ArticleItem } from '../components/Article';
 import { Input, FormBtn, YearSelect } from '../components/Form';
@@ -74,9 +73,6 @@ class Search extends Component {
       <Container>
         <Row>
           <Col className="col-md-12">
-            <div className="text-center">
-              <div className="alert alert-info border-info"><i className="fas fa-info-circle"></i> To view articles that have been saved, click the big red button in the lower-right corner.</div>
-            </div>
             <div className="card text-white bg-secondary mb-3">
               <div className="card-header text-center"><h4>Search Articles</h4></div>
               <div className="card-body">
@@ -175,11 +171,6 @@ class Search extends Component {
             )}
           </Col>
         </Row>
-        <div className="action-div">
-          <Link to="/saved">
-            <FormBtn className="btn btn-action btn-view-saved btn-lg animated infinite pulse"><i className="far fa-bookmark fa-2x"></i></FormBtn>
-          </Link>
-        </div>
       </Container>
     );
   }

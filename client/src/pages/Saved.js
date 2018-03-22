@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { Col, Row, Container } from '../components/Grid';
 import { ArticleList, ArticleItem } from '../components/Article';
-import { FormBtn } from '../components/Form';
 import API from '../utils/api';
 import moment from 'moment';
 
@@ -91,11 +89,6 @@ class Saved extends Component {
             )}
           </Col>
         </Row>
-        <div className="action-div">
-          <Link to="/">
-            <FormBtn className="btn btn-action btn-view-search btn-lg animated infinite pulse"><i className="fas fa-search fa-2x"></i></FormBtn>
-          </Link>
-        </div>
       </Container>
     );
   }
