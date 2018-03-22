@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import API from '../utils/api';
 import moment from 'moment';
-import { Col, Row, Container } from '../components/Grid';
 import { ArticleList, ArticleItem } from '../components/Article';
 import { Input, FormBtn, YearSelect } from '../components/Form';
+import {
+  Container,
+  Row,
+  Col
+} from 'reactstrap';
 
 class Search extends Component {
   constructor(props){

@@ -1,5 +1,9 @@
 import React from 'react';
-import { Col, Row, Container } from '../components/Grid';
+import {
+  Container,
+  Row,
+  Col
+} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 const NoMatch = () => (

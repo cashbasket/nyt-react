@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import { Col, Row, Container } from '../components/Grid';
 import { ArticleList, ArticleItem } from '../components/Article';
 import API from '../utils/api';
 import moment from 'moment';
+import {
+  Container,
+  Row,
+  Col
+} from 'reactstrap';
 
 class Saved extends Component {
   state = {
