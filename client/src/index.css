@@ -4,6 +4,10 @@ body {
   background-color: #ddd;
 }
 
+main {
+  margin-top: 55px;
+}
+
 .site {
 	display: flex;
 	min-height: 100vh;
@@ -12,6 +16,10 @@ body {
 
 .site-content {
 	flex: 1;
+}
+
+.bg-black {
+  background-color: #000;
 }
 
 #searching {
@@ -81,7 +89,7 @@ a,
 a:hover,
 a:active,
 a:focus {
-  color: #bd1313;
+  color: #dc3545;
 }
 
 a:hover,
@@ -122,12 +130,12 @@ h3 a:focus {
 .save-article-link,
 .delete-article-link {
   font-weight: bold;
-  color: #bd1313 !important;
+  color: #dc3545 !important;
   cursor: pointer;
 }
 
 .btn-action {
-  background-color: #bd1313;
+  background-color: #dc3545;
   border: 2px solid #fff;
   border-radius: 50%;
   color: #fff;
